@@ -133,3 +133,41 @@ The analysis highlights the importance of contract type, early tenure, internet 
 ## Detailed Analysis
 
 For a more detailed breakdown of the SQL analysis, segment comparisons, and findings, see [insights.md](insights.md).
+
+## How to Reproduce the Analysis
+
+Follow these steps to recreate the analysis using the provided SQL scripts and Power BI report.
+
+### 1. Obtain the Dataset
+
+Download the IBM Telco Customer Churn dataset from [its original source](https://www.kaggle.com/datasets/blastchar/telco-customer-churn). The dataset contains customer demographics, subscribed services, account information, and churn status.
+
+Ensure you have permission to download and use the dataset under its applicable terms.
+
+### 2. Set Up PostgreSQL
+
+- Install PostgreSQL and open pgAdmin or your preferred PostgreSQL client.
+- Create a database for the project.
+- Create a table named `customers` using the dataset's column names and appropriate data types.
+- Import the CSV file into the table.
+- Ensure blank values in `TotalCharges` are handled as `NULL` values so they do not cause numeric import errors.
+
+### 3. Run the SQL Scripts
+
+Execute the scripts in the following order:
+
+1. `sql/01_data_quality_audit.sql` — inspect data quality and validate the imported dataset.
+2. `sql/02_churn_analysis.sql` — analyse overall churn and investigate patterns across customer characteristics and services.
+3. `sql/03_powerbi_dataset.sql` — create the view used by Power BI.
+
+Run the scripts against the database containing the imported `customers` table.
+
+### 4. Open the Power BI Dashboard
+
+- Open `power_BI/telco_churn_dashboard.pbix` in Power BI Desktop.
+- If prompted, configure the PostgreSQL connection to point to your local database.
+- Refresh the data and confirm that the report loads successfully.
+
+### 5. Explore the Findings
+
+Use the dashboard's visuals and filters to explore churn rates across customer segments. Refer to `insights.md` for the key findings and recommendations, and the dashboard screenshots for a quick preview of the report.
