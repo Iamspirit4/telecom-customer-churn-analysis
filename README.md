@@ -25,7 +25,7 @@ The objective of this project was to answer three key questions:
 
 ## Dataset
 
-The project uses the IBM Telco Customer Churn dataset, containing 7,043 customer records and 21 original columns.
+The project uses the IBM Telco Customer Churn dataset(https://www.kaggle.com/datasets/blastchar/telco-customer-churn), containing 7,043 customer records and 21 original columns.
 
 The dataset includes customer demographics, account information, services, billing attributes, tenure, and churn status.
 
